@@ -9,6 +9,8 @@
 ### usage
 
 ```sh
+# jenkins
+
 # generate certs
 ./scripts/gen_certs.sh
 
@@ -23,3 +25,19 @@ docker-compose up -d
 # remove certs
 rm -rf nginx/certs
 ```
+
+```sh
+# registry
+
+# generate certs
+./scripts/gen_certs.sh
+
+cd registry
+
+# check catalog
+curl --insecure https://localhost/v2/_catalog
+curl --cacert ../nginx/certs/ca.crt  https://localhost/v2/_catalog
+
+# garbage collect
+docker exec registry bin/registry garbage-collect --dry-run /etc/docker/registry/config.yml
+````
