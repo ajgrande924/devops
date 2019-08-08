@@ -40,4 +40,21 @@ curl --cacert ../nginx/certs/ca.crt  https://localhost/v2/_catalog
 
 # garbage collect
 docker exec registry bin/registry garbage-collect --dry-run /etc/docker/registry/config.yml
-````
+```
+
+```sh
+# x509: certificate signed by unknown authority
+
+# https://docs.docker.com/engine/security/certificates/
+# https://docs.docker.com/registry/recipes/nginx/
+
+sudo mkdir -p /etc/docker/certs.d/<private_registry_url>
+
+# copy certificates
+sudo ln -s <path_to_cert> /etc/docker/certs.d/<private_registry_url>/ca.crt
+sudo ln -s <path_to_cert> /etc/docker/certs.d/<private_registry_url>/client.cert
+sudo ln -s <path_to_key> /etc/docker/certs.d/<private_registry_url>/client.key
+
+# restart docker
+sudo systemctl restart docker
+```
