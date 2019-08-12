@@ -8,18 +8,27 @@ services:
       - 443:443
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ../nginx/certs:/etc/ssl/certs:ro
       - ../nginx/conf.d:/etc/nginx/conf.d:ro
       - ./logs:/var/log/nginx
+    secrets:
+      - server_ssl_cert
+      - server_ssl_key
+    depends_on:
+      - jenkins-master
   jenkins-master:
     image: jenkins/jenkins:lts
     container_name: master
     user: root
     ports:
       - 8443:8443
-      - 50000:50000
+      # - 50000:50000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - jenkins_master_home:/var/jenkins_home
+secrets:
+  server_ssl_cert:
+    file: ../nginx/certs/server.crt
+  server_ssl_key:
+    file: ../nginx/certs/server.key
 volumes:
   jenkins_master_home:

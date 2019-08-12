@@ -9,12 +9,14 @@ services:
       - 443:443
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ../nginx/certs:/etc/ssl/certs:ro
       - ./conf.d:/etc/nginx/conf.d:ro
       - ./logs:/var/log/nginx
     environment:
       - REGISTRY_TITLE=Private Docker Registry
       - DELETE_IMAGES=true
+    secrets:
+      - server_ssl_cert
+      - server_ssl_key
     networks:
       - registry-ui-net
     depends_on:
@@ -31,5 +33,10 @@ services:
       - REGISTRY_STORAGE_DELETE_ENABLED=true
     networks:
       - registry-ui-net
+secrets:
+  server_ssl_cert:
+    file: ../nginx/certs/server.crt
+  server_ssl_key:
+    file: ../nginx/certs/server.key
 networks:
   registry-ui-net:

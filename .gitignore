@@ -83,3 +83,4 @@ coverage/
 # specific
 docker/*/logs
 docker/*/storage
+docker/*/certs
