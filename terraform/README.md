@@ -38,3 +38,46 @@ Terraform is not:
   - a tool to do configuration management on the software on your machines
 
 Ansible/Chef/Puppet/Salt are better alternatives for that. Terraform can work together with these tools to provide you CI on your machines. Terraform provides Configuration Management on an infrastructure level, not on the level of software of your machines. 
+
+### examples
+
+The `provisioning` example:
+
+```sh
+# files
+
+backend.tf # configure remote state
+instance.tf # define aws instance
+provider.tf # define aws provider
+vars.tf # define variables
+script.sh # startup script to install + start nginx
+terraform.tfvars # aws credentials
+```
+
+```sh
+# commands
+
+# generate key pair: mykey (private) and mykey.pub (public) in current directory
+ssh-keygen -f mykey
+
+# terraform
+terraform init
+terraform plan
+terraform apply
+terraform destroy
+```
+
+What happens after `terraform apply`:
+
+  - creates a `t2.micro` instance in `us-east-1` (default)
+  - provisions `script.sh`
+  - executes `script.sh` which installs + starts nginx
+  - console will output `ip` variable
+  - public ip will be saved in local file `public_ips.txt`
+  - state will be saved and versioning in s3 bucket
+
+Once instance is up and running, you can ssh by running:
+
+```sh
+ssh ubuntu@<public_ip> -i mykey
+```

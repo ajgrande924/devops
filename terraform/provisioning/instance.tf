@@ -18,9 +18,18 @@ resource "aws_instance" "example" {
       "sudo /tmp/script.sh"
     ]
   }
+
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.example.public_ip} >> public_ips.txt"
+  }
+
   connection {
     host = "${self.public_ip}"
     user = "${var.INSTANCE_USERNAME}"
     private_key = "${file("${var.PATH_TO_PRIVATE_KEY}")}"
   }
+}
+
+output "ip" {
+  value = "${aws_instance.example.public_ip}"
 }
