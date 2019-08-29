@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "terraform-state-924"
-    key = "terraform/provisioning"
+    key = "terraform/vpc_ec2_ebs"
     region = "us-east-1"
   }
 }
