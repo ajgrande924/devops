@@ -23,7 +23,7 @@ parts = [
 
 pattern = re.compile(r'\s+'.join(parts)+r'\s*\Z')
 
-file = './apache.log'
+file = './apache.logz'
 
 my_dict = {}
 my_total = 0

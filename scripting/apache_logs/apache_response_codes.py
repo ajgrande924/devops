@@ -2,7 +2,7 @@
 
 # 1. Surface statistics of HTTP response codes: What percentage of requests return code 200, 400 etc?
 
-file = './apache.log'
+file = './apache.logz'
 
 my_dict = {}
 my_total = 0

@@ -1,0 +1,21 @@
+ 1  10.0.0.1 (10.0.0.1)  3.805 ms  5.168 ms  4.476 ms
+ 2  96.120.88.165 (96.120.88.165)  14.192 ms  13.123 ms  13.949 ms
+ 3  be-20025-rur02.santaclara.ca.sfba.comcast.net (68.85.191.9)  14.949 ms  14.835 ms  14.598 ms
+ 4  162.151.78.129 (162.151.78.129)  13.062 ms  15.114 ms  13.515 ms
+ 5  be-232-rar01.santaclara.ca.sfba.comcast.net (162.151.78.253)  19.002 ms  15.421 ms  13.887 ms
+ 6  be-299-ar01.santaclara.ca.sfba.comcast.net (68.86.143.93)  16.077 ms  14.128 ms  13.646 ms
+ 7  * * *
+ 8  * * *
+ 9  yahoo-inc.ear2.newyork1.level3.net (4.14.4.250)  97.820 ms  97.786 ms  106.945 ms
+10  unknown-216-115-101-x.yahoo.com (216.115.101.31)  100.262 ms
+    et-1-0-1.pat1.bfz.yahoo.com (72.30.223.5)  100.546 ms  101.445 ms
+11  et-1-1-1.msr1.bf2.yahoo.com (72.30.223.53)  105.508 ms
+    et-18-0-1.msr1.bf1.yahoo.com (74.6.227.131)  100.110 ms
+    et-19-1-0.msr2.bf1.yahoo.com (74.6.227.141)  112.662 ms
+12  unknown-74-6-122-x.yahoo.com (74.6.122.89)  97.194 ms
+    et-0-1-0.clr1-a-gdc.bf1.yahoo.com (74.6.122.13)  99.414 ms
+    unknown-74-6-122-x.yahoo.com (74.6.122.55)  99.735 ms
+13  eth-18-3-bas1-1-flk.bf1.yahoo.com (98.139.128.73)  95.894 ms
+    eth-17-3.bas2-1-flk.bf1.yahoo.com (98.139.128.71)  105.203 ms
+    eth-18-3.bas2-1-flk.bf1.yahoo.com (98.139.128.75)  111.140 ms
+14  media-router-fp1.prod1.media.vip.bf1.yahoo.com (72.30.35.9)  103.837 ms  103.729 ms  98.879 ms
